@@ -1,0 +1,26 @@
+3
+Roma Calle1 IreneE
+5
+Heartless MarissaMeyer 2016 464 FyF 7
+HarryPotter JKRowling 1997 264 Salamandra 10
+HarryPotter2 JKRowling 1998 361 Salamandra 6
+PercyJackson RickRiordan 2005 288 Penguin 15
+Siega NealShusterman 2017 351 Nocturna 25
+Polanco Calle2 MelanieL
+7
+HarryPotter JKRowling 1997 264 Salamandra 16
+HarryPotter2 JKRowling 1998 361 Salamandra 2
+HarryPotter3 JKRowling 1999 384 Penguin 10
+PercyJackson2 RickRiordan 2006 256 Penguin 25
+OrgulloyPrejuicio JaneAustin 1813 345 Planeta 30
+ElPrincipito AntoineSaint 1943 92 Penguin 35
+Mujercitas LouisaMay 1868 688 Planeta 32
+Tlalpan Calle3 AlainA
+7
+ElPrincipito AntoineSaint 1943 92 Penguin 35
+Nimbo NealShusterman 2018 534 Nocturna 40
+ElPrincipito AntoineSaint 1943 92 Penguin 35
+HarryPotter3 JKRowling 1999 384 Penguin 10
+HarryPotter4 JKRowling 2000 635 Salamandra 23
+LaSeleccion KieraCass 2012 240 Penguin 13
+Cinder MarissaMeyer 2011 416 Vergara 20
