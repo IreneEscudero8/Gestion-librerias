@@ -39,145 +39,192 @@ Este proyecto consiste en un sistema informático desarrollado en Java con GUI (
 
 ---
 
-## 🏗️ Diseño del Sistema
+### 💻 Compilación
 
-El sistema está compuesto por las siguientes clases:
+```bash
+javac *.java
+```
 
-| Clase    | Descripción                                                                 |
-|----------|------------------------------------------------------------------------------|
-| `Libro`  | Representa un libro con título, autor, año, número de páginas y editorial.   |
-| `Librería` | Maneja los libros de una sucursal, su inventario y datos básicos.          |
-| `AsoLib` | Gestiona el conjunto de librerías y permite operaciones cruzadas entre ellas.|
-| `Vista`  | GUI que permite la interacción del usuario.                                  |
-| `Controlador` | Intermediario entre la vista y la lógica de negocio.                    |
-| `Main`   | Ejecutable del sistema.                                                      |
+### ▶️ Ejecución
+
+```bash
+java EjecutableAsoLibrerias
+```
+
+⚠️ El sistema cargará automáticamente el archivo `DatosLibreria.txt` al inicio si se encuentra en el mismo directorio.
 
 ---
-## UML:
-+---------------------------+
+
+## 📂 Carga Inicial con `DatosLibreria.txt`
+
+Este archivo contiene instrucciones para poblar el sistema. Debe estar en la misma carpeta del programa.
+
+### 📌 Formato del archivo
+
+LIBRERIA;Nombre;Dirección;Gerente
+LIBRO;NombreLibreria;Título;Autor;Año;Páginas;Editorial;Cantidad
+
+---
+
+## 🧩 Estructura del Proyecto
+
+### 📘 Libro.java
+Representa un libro con los siguientes atributos:
+
+- **titulo**: Título del libro.
+- **autor**: Autor del libro.
+- **anio**: Año de publicación.
+- **numPaginas**: Número de páginas.
+- **editorial**: Editorial del libro.
+
+### 🛠️ Métodos principales:
+
+- Constructores y getters.
+- equals(Libro otro): Compara libros por título y autor.
+- compareTo(Libro otro): Compara libros por titulo.
+- toString(): Representación textual del libro.
+
 |           Libro           |
-+---------------------------+
+|---------------------------|
 | - titulo: String          |
 | - autor: String           |
 | - anio: int               |
-| - numPaginas: int        |
+| - numPaginas: int         |
 | - editorial: String       |
-+---------------------------+
+|---------------------------|
 | + Libro(...)              |
-| + getTitulo(): String     |
-| + getAutor(): String      |
-| + getAnio(): int          |
-| + getNumPaginas(): int    |
-| + getEditorial(): String  |
-| + equals(Libro): boolean  |
-| + compareTo(Libro): int   |
-| + toString(): String      |
-+---------------------------+
+| + getTitulo()             |
+| + getAutor()              |
+| + getAnio()               |
+| + getNumPaginas()         |
+| + getEditorial()          |
+| + equals(Libro)           |
+| + compareTo(Libro)        |
+| + toString()              |
+|---------------------------|
 
-+----------------------------------+
-|            Libreria             |
-+----------------------------------+
-| - nombre: String                |
-| - direccion: String             |
-| - gerente: String               |
-| - libros: Libro[]               |
-| - ejemplares: Integer[]         |
-| - MAX: int                      |
-| - ocupados: int                 |
-+----------------------------------+
-| + Libreria(...)                 |
-| + getNombre(): String           |
-| + getDireccion(): String        |
-| + getGerente(): String          |
-| + getOcupados(): int            |
-| + altaLibro(...): boolean       |
-| + bajaLibro(titulo): boolean    |
-| + registrarVentaLib(...): boolean |
-| + cuantosHayTitulo(titulo): int|
-| + librosAutor(autor): ArrayList|
-| + agregarEjemplares(...): bool |
-| + infoLibro(titulo): String     |
-| + toString(): String            |
-+----------------------------------+
+---
 
-+--------------------------------------------+
+### 🏪 Libreria.java
+Representa una librería individual con:
+
+- **nombre**: Nombre de la librería.
+- **direccion**: Dirección física.
+- **gerente**: Nombre del gerente.
+- **libros**: Arreglo de libros disponibles.
+- **ejemplares**: Cantidad de ejemplares por libro.
+
+### 🛠️ Métodos principales:
+
+- altaLibro(Libro libro, int cantidad): Agrega un libro al inventario.
+- bajaLibro(String titulo): Elimina un libro del inventario.
+- registrarVentaLib(String titulo, int cantidad): Registra la venta de ejemplares.
+- cuantosHayTitulo(String titulo): Consulta la cantidad de ejemplares de un título.
+- librosAutor(String autor): Lista libros de un autor específico.
+- agregarEjemplares(String titulo, int cantidad): Agrega ejemplares a un libro existente.
+- infoLibro(String titulo): Muestra información detallada de un libro.
+
+|            Libreria              |
+|----------------------------------|
+| - nombre: String                 |
+| - direccion: String              |
+| - gerente: String                |
+| - libros: Libro[]                |
+| - ejemplares: Integer[]          |
+| - MAX: int                       |
+| - ocupados: int                  |
+|----------------------------------|
+| + Libreria(...)                  |
+| + getNombre()                    |
+| + getDireccion()                 |
+| + getGerente()                   |
+| + altaLibro(...)                 |
+| + bajaLibro(...)                 |
+| + registrarVentaLib(...)         |
+| + cuantosHayTitulo(...)          |
+| + librosAutor(...)               |
+| + agregarEjemplares(...)         |
+| + infoLibro(...)                 |
+| + toString()                     |
+|----------------------------------|
+
+---
+
+### 🏢 AsoLib.java
+Gestiona la asociación de librerías:
+
+- **nombre**: Nombre de la asociación.
+- **librerias**: Arreglo de librerías afiliadas.
+
+### 🛠️ Métodos principales:
+
+- altaLibreria(Libreria libreria): Agrega una nueva librería.
+- bajaLibreria(String nombre): Elimina una librería existente.
+- altaLibro(String nombreLibreria, Libro libro, int cantidad): Agrega un libro a una librería específica.
+- bajaLibro(String nombreLibreria, String titulo): Elimina un libro de una librería.
+- registrarVenta(String nombreLibreria, String titulo, int cantidad): Registra una venta en una librería.
+- cuantosHayTituloTotal(String titulo): Consulta la cantidad total de ejemplares de un título en todas las librerías.
+- donde(String titulo): Indica en qué librerías se encuentra un título.
+- titulosPorAutor(String autor): Lista todos los títulos de un autor en la asociación.
+- cambioDeLibreria(String titulo, String origen, String destino, int cantidad): Transfiere ejemplares de un libro entre librerías.
+- agregarEjemplares(String nombreLibreria, String titulo, int cantidad): Agrega ejemplares a un libro en una librería.
+- infoLibreria(String nombre): Muestra información detallada de una librería.
+- infoLibro(String nombreLibreria, String titulo): Muestra información detallada de un libro en una librería.
+
 |                 AsoLib                     |
-+--------------------------------------------+
-| - nombre: String                          |
-| - librerias: Libreria[]                   |
-| - MAX: int                                |
-| - ocupados: int                           |
-+--------------------------------------------+
-| + AsoLib(...)                             |
-| + getNombre(): String                     |
-| + getOcupados(): int                      |
-| + altaLibreria(...): boolean              |
-| + bajaLibreria(nombre): boolean           |
-| + altaLibro(...): boolean                 |
-| + bajaLibro(...): boolean                 |
-| + registrarVenta(...): boolean            |
-| + cuantosHayTituloTotal(titulo): int      |
-| + cuantosHayTituloLib(...): int           |
-| + donde(titulo): String                   |
-| + titulosPorAutor(autor): ArrayList       |
-| + cambioDeLibreria(...): boolean          |
-| + agregarEjemplares(...): boolean         |
-| + infoLibreria(nombre): String            |
-| + infoLibro(...): String                  |
-| + librerias(): String                     |
-| + toString(): String                      |
-+--------------------------------------------+
-
+|--------------------------------------------|
+| - nombre: String                           |
+| - librerias: Libreria[]                    |
+| - MAX: int                                 |
+| - ocupados: int                            |
+|--------------------------------------------|
+| + AsoLib(...)                              |
+| + altaLibreria(...)                        |
+| + bajaLibreria(...)                        |
+| + altaLibro(...)                           |
+| + bajaLibro(...)                           |
+| + registrarVenta(...)                      |
+| + cuantosHayTituloTotal(...)               |
+| + donde(...)                               |
+| + titulosPorAutor(...)                     |
+| + cambioDeLibreria(...)                    |
+| + agregarEjemplares(...)                   |
+| + infoLibreria(...)                        |
+| + infoLibro(...)                           |
+| + librerias()                              |
+| + toString()                               |
+|--------------------------------------------|
 
 ---
 
-## 💻 Implementación de la GUI
+### 🖼️ VistaAsoLib.java
 
-La interfaz gráfica tiene 4 secciones principales:
-
-1. **Gestión de librerías**
-2. **Gestión de libros**
-3. **Consultas y acciones**
-4. **Área de mensajes**
-
-
+Interfaz gráfica basada en Swing. Permite realizar todas las operaciones con botones y campos de texto. Muestra resultados y mensajes en un área de texto central.
 
 ---
 
-## 🧪 Casos de Prueba y Resultados
+### 🧠 ControladorAsoLib.java
 
-| Prueba                            | Entrada                               | Resultado Esperado             |
-|----------------------------------|----------------------------------------|--------------------------------|
-| Alta librería                    | Datos correctos                        | Alta exitosa                   |
-| Alta libro ya existente          | Título duplicado en la misma librería | Alta no exitosa                |
-| Baja libro inexistente           | Libro no registrado                    | Baja no exitosa                |
-| Venta de todos los ejemplares   | Ejemplares = inventario               | Libro se elimina automáticamente |
-| Consulta total libros por título | “Título” y “Nombre” vacío              | Cantidad total entre librerías |
-| Cambio de librería               | Librerías y título correctos           | Cambio exitoso                 |
+Clase intermediaria entre la interfaz gráfica (Vista) y la lógica del sistema (AsoLib). Se encarga de procesar los eventos, validar entradas y mostrar resultados al usuario.
 
 ---
 
-## 📊 Análisis de Resultados
+### ▶️ EjecutableAsoLibrerias.java
 
-El sistema fue sometido a distintas pruebas para validar su robustez. Se detectaron errores como:
-
-- Campos vacíos sin validación adecuada.
-- Falta de verificación de datos numéricos negativos.
-- Dificultad para consultar sin conocer nombres exactos.
-
-Se corrigieron añadiendo validaciones, condiciones de error, y una funcionalidad de consulta general (“Librerías”).
+Clase principal que lanza la aplicación. Realiza la carga automática del archivo `DatosLibreria.txt` y crea la ventana gráfica principal.
 
 ---
 
-## ✅ Conclusiones
+### 📄 DatosLibreria.txt
 
-- El proyecto cumple con los objetivos de automatizar y facilitar la gestión de librerías.
-- Su diseño modular y GUI amigable permiten escalar o integrar nuevas funcionalidades fácilmente.
-- Promueve el acceso más justo y eficiente a la cultura mediante una mejor administración de libros.
+Archivo de texto con instrucciones para poblar el sistema al inicio. Debe contener líneas como:
 
+Este archivo debe estar en la misma carpeta donde se ejecuta el programa.
 ---
 
-## 📎 Referencias
+## 📄 Documentación Adicional
 
-- Galiana, Y. (2022). [10 razones por las que son importantes las bibliotecas públicas](https://www.lecturalia.com/blog/2022/10/19/razones-por-las-que-son-importantes-las-bibliotecas-publicas/)
-- Oscar, A. N., & Graciela, T. Q. (n.d.). Bibliotecas universitarias y automatización: un panorama de la Ciudad de México. [scielo.org](http://scielo.org.co/scielo.php?script=sci_arttext&pid=S0120-09762011000200002)
+Para una explicación más detallada del proyecto, incluyendo contexto, análisis, diseño, pruebas y conclusiones, consulta el documento completo en PDF:
+
+➡️ [Ver proyectoFinal.pdf](proyectoFinal.pdf)
+
