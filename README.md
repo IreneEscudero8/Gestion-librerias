@@ -223,8 +223,9 @@ Este archivo debe estar en la misma carpeta donde se ejecuta el programa.
 ---
 
 ## 📄 Documentación Adicional
-
+### GUI
+![Vista del GUI](gui.png)
 Para una explicación más detallada del proyecto, incluyendo contexto, análisis, diseño, pruebas y conclusiones, consulta el documento completo en PDF:
 
-➡️ [Ver proyectoFinal.pdf](proyectoFinal.pdf)
+➡️ [Ver ProyectoFinal.pdf](ProyectoFinal.pdf)
 
