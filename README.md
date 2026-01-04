@@ -7,13 +7,13 @@
 
 ---
 
-## 📚 Descripción General
+## Descripción General
 
 Este proyecto consiste en un sistema informático desarrollado en Java con GUI (Swing) que permite gestionar una asociación de librerías. Permite registrar y consultar información de sucursales, libros, ventas y realizar operaciones de administración de inventario de forma eficiente y automatizada.
 
 ---
 
-## 🧠 Objetivos
+## Objetivos
 
 - Automatizar el manejo de múltiples librerías y sus inventarios.
 - Facilitar la localización y gestión de libros.
@@ -22,16 +22,16 @@ Este proyecto consiste en un sistema informático desarrollado en Java con GUI (
 
 ---
 
-## 🧩 Requisitos y Restricciones
+## Requisitos y Restricciones
 
-### ✅ Requisitos funcionales
+### Requisitos funcionales
 
 - Java y Eclipse para su ejecución.
 - Todas las clases deben estar en el mismo proyecto o correctamente enlazadas.
 - Solo se permiten valores numéricos mayores a 0.
 - Datos deben coincidir con los registrados para realizar operaciones exitosas.
 
-### 🚫 Restricciones
+### Restricciones
 
 - Máximo de **15 librerías** en la asociación.
 - Cada librería puede almacenar un máximo de **50 libros**.
@@ -39,36 +39,36 @@ Este proyecto consiste en un sistema informático desarrollado en Java con GUI (
 
 ---
 
-### 💻 Compilación
+### Compilación
 
 ```bash
 javac *.java
 ```
 
-### ▶️ Ejecución
+### Ejecución
 
 ```bash
 java EjecutableAsoLibrerias
 ```
 
-⚠️ El sistema cargará automáticamente el archivo `DatosLibreria.txt` al inicio si se encuentra en el mismo directorio.
+El sistema cargará automáticamente el archivo `DatosLibreria.txt` al inicio si se encuentra en el mismo directorio.
 
 ---
 
-## 📂 Carga Inicial con `DatosLibreria.txt`
+## Carga Inicial con `DatosLibreria.txt`
 
 Este archivo contiene instrucciones para poblar el sistema. Debe estar en la misma carpeta del programa.
 
-### 📌 Formato del archivo
+### Formato del archivo
 
 LIBRERIA;Nombre;Dirección;Gerente
 LIBRO;NombreLibreria;Título;Autor;Año;Páginas;Editorial;Cantidad
 
 ---
 
-## 🧩 Estructura del Proyecto
+## Estructura del Proyecto
 
-### 📘 Libro.java
+### Libro.java
 Representa un libro con los siguientes atributos:
 
 - **titulo**: Título del libro.
@@ -77,7 +77,7 @@ Representa un libro con los siguientes atributos:
 - **numPaginas**: Número de páginas.
 - **editorial**: Editorial del libro.
 
-### 🛠️ Métodos principales:
+### Métodos principales:
 
 - Constructores y getters.
 - equals(Libro otro): Compara libros por título y autor.
@@ -105,7 +105,7 @@ Representa un libro con los siguientes atributos:
 
 ---
 
-### 🏪 Libreria.java
+### Libreria.java
 Representa una librería individual con:
 
 - **nombre**: Nombre de la librería.
@@ -114,7 +114,7 @@ Representa una librería individual con:
 - **libros**: Arreglo de libros disponibles.
 - **ejemplares**: Cantidad de ejemplares por libro.
 
-### 🛠️ Métodos principales:
+### Métodos principales:
 
 - altaLibro(Libro libro, int cantidad): Agrega un libro al inventario.
 - bajaLibro(String titulo): Elimina un libro del inventario.
@@ -150,13 +150,13 @@ Representa una librería individual con:
 
 ---
 
-### 🏢 AsoLib.java
+### AsoLib.java
 Gestiona la asociación de librerías:
 
 - **nombre**: Nombre de la asociación.
 - **librerias**: Arreglo de librerías afiliadas.
 
-### 🛠️ Métodos principales:
+### Métodos principales:
 
 - altaLibreria(Libreria libreria): Agrega una nueva librería.
 - bajaLibreria(String nombre): Elimina una librería existente.
@@ -197,35 +197,35 @@ Gestiona la asociación de librerías:
 
 ---
 
-### 🖼️ VistaAsoLib.java
+### VistaAsoLib.java
 
 Interfaz gráfica basada en Swing. Permite realizar todas las operaciones con botones y campos de texto. Muestra resultados y mensajes en un área de texto central.
 
 ---
 
-### 🧠 ControladorAsoLib.java
+### ControladorAsoLib.java
 
 Clase intermediaria entre la interfaz gráfica (Vista) y la lógica del sistema (AsoLib). Se encarga de procesar los eventos, validar entradas y mostrar resultados al usuario.
 
 ---
 
-### ▶️ EjecutableAsoLibrerias.java
+### EjecutableAsoLibrerias.java
 
 Clase principal que lanza la aplicación. Realiza la carga automática del archivo `DatosLibreria.txt` y crea la ventana gráfica principal.
 
 ---
 
-### 📄 DatosLibreria.txt
+### DatosLibreria.txt
 
 Archivo de texto con instrucciones para poblar el sistema al inicio. Debe contener líneas como:
 
 Este archivo debe estar en la misma carpeta donde se ejecuta el programa.
 ---
 
-## 📄 Documentación Adicional
+## Documentación Adicional
 ### GUI
 ![Vista del GUI](gui.jpg)
 Para una explicación más detallada del proyecto, incluyendo contexto, análisis, diseño, pruebas y conclusiones, consulta el documento completo en PDF:
 
-➡️ [Ver ProyectoFinal.pdf](ProyectoFinal.pdf)
+[Ver ProyectoFinal.pdf](ProyectoFinal.pdf)
 
